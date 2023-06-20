@@ -1,0 +1,32 @@
+#GUI
+from tkinter import*
+from time import*
+def update():
+    #TIME
+    time_string=strftime("%I:%M:%S %p")
+    clock_label.config(text=time_string)
+    #DAY
+    day_clock_string = strftime("%A")
+    day_clock_label.config(text=day_clock_string)
+    #DATE
+    date_clock_string = strftime("%B %d, %Y")
+    date_clock_label.config(text=date_clock_string)
+    clock.after(1000,update)
+clock=Tk()
+#DESIGN STUFF
+#clock.geometry("500x500")
+clock.title("Clock")
+clock.config(background="black")
+icon=PhotoImage(file='clock.png')
+clock.iconphoto(True,icon)
+#TIME
+clock_label=Label(clock,font=("Calibri",70),fg="White",bg="Black")
+clock_label.pack()
+#DAY
+day_clock_label=Label(clock,font=("Calibri",50),fg="White",bg="Black")
+day_clock_label.pack()
+#DATE
+date_clock_label=Label(clock,font=("Calibri",30),fg="White",bg="Black")
+date_clock_label.pack()
+update()
+clock.mainloop()
